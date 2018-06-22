@@ -43,6 +43,10 @@ def sum_digits(n):
     45
     """
     "*** YOUR CODE HERE ***"
+    sum = 0
+    while n != 0:
+        sum += n % 10
+        n // 10
 
 def double_eights(n):
     """Return true if n has two eights in a row.
