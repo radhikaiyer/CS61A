@@ -68,7 +68,7 @@ def with_if_function():
     return if_function(c(), t(), f())
 
 def c():
-    return false
+    return False
 
 def t():
     return 1/0
@@ -91,6 +91,7 @@ def hailstone(n):
     >>> a
     7
     """
+    i = 0
      while n != 1:
         print(n)
            if n%2 == 0:
