@@ -71,7 +71,7 @@ def c():
     return false
 
 def t():
-    1/0
+    return 1/0
 
 def f():
     return 1
