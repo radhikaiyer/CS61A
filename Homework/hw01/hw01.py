@@ -68,13 +68,13 @@ def with_if_function():
     return if_function(c(), t(), f())
 
 def c():
-    return True
+    return false
 
 def t():
-    print(1)
+    1/0
 
 def f():
-    x
+    return 1
 
 
 def hailstone(n):
@@ -95,7 +95,7 @@ def hailstone(n):
         print(n)
            if n%2 == 0:
             n = n // 2
-        else:
+           else:
             n = 3*n + 1
         i = i + 1
         print (n)
