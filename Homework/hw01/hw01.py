@@ -99,5 +99,5 @@ def hailstone(n):
            else:
             n = 3*n + 1
         i = i + 1
-        print (n)
+    print (n)
     return i

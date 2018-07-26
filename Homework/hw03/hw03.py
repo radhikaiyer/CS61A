@@ -20,7 +20,13 @@ def has_seven(k):
     >>> has_seven(7777)
     True
     """
-    "*** YOUR CODE HERE ***"
+    if k % 10 == 7:
+        return True
+    elif k < 10:
+        return False
+    else:
+        return has_seven(k//10)   
+
 
 def summation(n, term):
 
@@ -40,7 +46,10 @@ def summation(n, term):
     True
     """
     assert n >= 1
-    "*** YOUR CODE HERE ***"
+    if n == 1:
+        return term(n)
+    else: 
+        term(n) + summation(n-1, term)
 
 from operator import add, mul
 
@@ -72,7 +81,10 @@ def accumulate(combiner, base, n, term):
     >>> accumulate(mul, 2, 3, square)   # 2 * 1^2 * 2^2 * 3^2
     72
     """
-    "*** YOUR CODE HERE ***"
+    if n == 1:
+        return combiner(base, term(n))     
+    else:
+        return combiner(term(n), accumulate(combiner, base, n-1, term))
 
 def summation_using_accumulate(n, term):
     """Returns the sum of term(1) + ... + term(n). The implementation
@@ -88,7 +100,7 @@ def summation_using_accumulate(n, term):
     True
     """
     "*** YOUR CODE HERE ***"
-    return _______
+    return accumulate(add, 0, n, term)
 
 def product_using_accumulate(n, term):
     """An implementation of product using accumulate.
@@ -103,7 +115,7 @@ def product_using_accumulate(n, term):
     True
     """
     "*** YOUR CODE HERE ***"
-    return _______
+    return accumulate(mul, 1, n, term)
 
 def filtered_accumulate(combiner, base, pred, n, term):
     """Return the result of combining the terms in a sequence of N terms
@@ -129,7 +141,13 @@ def filtered_accumulate(combiner, base, pred, n, term):
     True
     """
     def combine_if(x, y):
-        "*** YOUR CODE HERE ***"
+        if (n >= 1):
+            if (pred(x)):
+                return combiner(x, y)
+            else:
+                return y
+        else:
+            return base
     return accumulate(combine_if, base, n, term)
 
 def odd(x):
@@ -153,7 +171,13 @@ def make_repeater(f, n):
     >>> make_repeater(square, 0)(5)
     5
     """
-    "*** YOUR CODE HERE ***"
+    def repeater(x):
+        start = x
+        for i in range(n):
+            start = f(start)
+        return start
+    return repeater
+        
 
 def compose1(f, g):
     """Return a function h, such that h(x) = f(g(x))."""

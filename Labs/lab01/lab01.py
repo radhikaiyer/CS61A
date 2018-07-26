@@ -63,9 +63,9 @@ def double_eights(n):
     False
     """
     while n:
-    	previous = n % 10
-    	n = n // 10
-    	current = n % 10
-    	if previous == 8 and previous == current:
-    		return True
-    return False
+        previous = n % 10
+        n = n // 10
+        current = n % 10
+        if previous == 8 and previous == current:
+            return True
+    return False   
